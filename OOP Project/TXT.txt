@@ -1,0 +1,25 @@
+
+double laplace(const Markov_model& opf, const std::string& str){
+
+    unsigned int ns = 0;
+    unsigned int ncs = 0;
+
+    auto search = opf.model.find(str);  
+    if (!(search != opf.model.end())){
+
+        ncs = search->second;
+        std::cout << str <<" found and the value is " << search->first << search->second << '\n';  
+    } else {  
+        std::cout << str <<" not found\n";  
+    }
+
+    auto search = opf.model.find(str.substr(0, str.size()-1));  
+    if (search != opf.model.end()){
+        ncs = search->second;
+        std::cout << str.substr(0, str.size()-1) <<" found and the value is " << search->first << search->second << '\n';  
+    } else {  
+        std::cout << str.substr(0, str.size()-1) <<" not found\n";  
+    }  
+
+    return ((ncs + 1)/(ns + size(str)));
+}

@@ -1,0 +1,27 @@
+for(unsigned int j = 0; j < tf.size(); j++){ //training_data
+  std:: cout << "File name : " << tf[j] << std::endl;
+  opf.open(tf[j], std::ios::in);
+      if(opf.is_open()){
+          std:: cout << "File is opened"<< std::endl;
+
+          std::getline(opf, trnamedata);
+          std::getline(opf, trdata); //check point : if the dataname corresponding to filename
+          std:: cout << "Data name : " << trnamedata<<std::endl;
+
+          markov_model(ptr,order, trdata);
+        opf.close();
+      }
+  for(unsigned int k = 0; k < tstf.size(); k++){ //test
+
+  opftst.open(tstf[k], std::ios::in);
+      if(opftst.is_open()){
+          std:: getline(opftst, tstdata);
+          try{
+            std:: cout << "Likelihood : " << likelihood(ptr, tstdata) << std::endl;
+          }catch(const std::exception& e){
+              std::cout << "-" << std::endl;
+          }
+        opftst.close();
+      }
+  }
+}
