@@ -1,1 +1,1 @@
-# Objet-Oriented-Programming-Projects-Project-1---Markov-Model
+This project consist of the implemention of a Markov model in C++ for analyzing sequences. It provides functions to build a Markov model (markov_model), calculate the probability of a sequence using Laplace smoothing (laplace), and compute the likelihood of a given string (likelihood). The program handles various edge cases such as string length and alphabet validation, making it robust for sequence modeling and analysis.
